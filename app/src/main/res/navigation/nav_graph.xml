@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/search"
+    android:id="@+id/nav_graph">
+
+
+    <fragment
+        android:id="@+id/order"
+        android:name="com.nikhil.sellerapp.home.OrderFragment"
+        android:label="orderfrag"
+        tools:layout="@layout/fragment_order"/>
+    <fragment
+        android:id="@+id/profile"
+        android:name="com.nikhil.sellerapp.home.ProfileFragment"
+        android:label="profilefrag"
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_prof_to_exp"
+
+            app:destination="@+id/addnewexp"/>
+        <action
+            android:id="@+id/prof_to_cert"
+            app:destination="@+id/addnewcert"/>
+        <action
+            android:id="@+id/prof_to_qual"
+            app:destination="@+id/qual"/>
+        <action
+            android:id="@+id/prof_to_edit"
+            app:destination="@+id/edit"/>
+    </fragment>
+    <fragment
+        android:id="@+id/edit"
+        android:name="com.nikhil.sellerapp.profilepage.EditFragment"
+        tools:layout="@layout/fragment_edit"
+        android:label="edit"/>
+    <fragment
+        android:id="@+id/qual"
+        android:name="com.nikhil.sellerapp.qualification.QualificationFragment"
+        tools:layout="@layout/fragment_qualification"
+        android:label="addqual"/>
+    <fragment
+        android:id="@+id/search"
+        android:name="com.nikhil.sellerapp.home.SearchFragment"
+        android:label="searchfrag"
+        tools:layout="@layout/fragment_search"/>
+    <fragment
+        android:id="@+id/addnewexp"
+    android:name="com.nikhil.sellerapp.experience.AddExperience"
+        android:label="addexp"
+        tools:layout="@layout/fragment_add_experience"/>
+    <fragment
+        android:id="@+id/addnewcert"
+        android:name="com.nikhil.sellerapp.certificate.certificateFragment"
+        android:label="cert"
+        tools:layout="@layout/fragment_certificate"
+        />
+
+
+        <fragment
+            android:id="@+id/message"
+            android:name="com.nikhil.sellerapp.home.MessgeFragment"
+            android:label="messagefrag"
+            tools:layout="@layout/fragment_messge" />
+
+
+
+</navigation>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg"
+        tools:context=".profilepage.BasicFragment">
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/hguide1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.03" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/vguide1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/vguide2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/hguide2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.97" />
+
+
+
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/div2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@+id/hguide1"
+            android:background="@color/black" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvQualification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/div2"
+            android:text="Qualifications"
+            app:layout_constraintStart_toEndOf="@+id/vguide1"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_qual_edit"
+            app:layout_constraintEnd_toStartOf="@id/vguide2"
+            android:src="@drawable/addcircle"
+            android:backgroundTint="@android:color/transparent"
+            app:layout_constraintTop_toBottomOf="@+id/div2"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recylerqual"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/vguide1"
+            app:layout_constraintEnd_toStartOf="@+id/vguide2"
+            app:layout_constraintTop_toBottomOf="@+id/tvQualification"
+            app:layout_constraintBottom_toTopOf="@+id/div3"/>
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/div3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recylerqual"
+            android:background="@color/black" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvcert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/div3"
+            android:text="Certifications"
+            app:layout_constraintStart_toEndOf="@+id/vguide1"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_cert_edit"
+            app:layout_constraintEnd_toStartOf="@id/vguide2"
+            android:src="@drawable/addcircle"
+            android:backgroundTint="@android:color/transparent"
+            app:layout_constraintTop_toBottomOf="@+id/div3"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recylercert"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            app:layout_constraintStart_toEndOf="@+id/vguide1"
+            app:layout_constraintEnd_toStartOf="@+id/vguide2"
+            app:layout_constraintTop_toBottomOf="@+id/tvcert"
+            app:layout_constraintBottom_toTopOf="@+id/div4"/>
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/div4"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recylercert"
+            android:background="@color/black" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvReviews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/div4"
+            android:text="Reviews"
+            app:layout_constraintStart_toEndOf="@+id/vguide1"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/div4"
+            android:text="4.5"
+            app:layout_constraintStart_toEndOf="@+id/tvReviews"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recylerReview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:clipToPadding="false"
+            app:layout_constraintStart_toEndOf="@+id/vguide1"
+            app:layout_constraintEnd_toStartOf="@+id/vguide2"
+            app:layout_constraintTop_toBottomOf="@+id/tvReviews"
+            app:layout_constraintBottom_toTopOf="@+id/div5"/>
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/div5"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recylerReview"
+            android:background="@color/black" />
+
+
+
+
+
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

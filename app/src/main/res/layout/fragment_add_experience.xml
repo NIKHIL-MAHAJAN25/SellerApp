@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    tools:context=".experience.AddExperience">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hguide1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.02" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vguide1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vguide2"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hguide2"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.97" />
+    <ImageButton
+        android:id="@+id/imgbt"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:backgroundTint="@android:color/transparent"
+        android:src="@drawable/baseline_arrow_back_ios_24"
+        app:layout_constraintStart_toEndOf="@id/vguide1"
+        app:layout_constraintTop_toBottomOf="@+id/hguide1"
+        android:contentDescription="Back"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/compimage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/bg"
+        android:clickable="false"
+
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintWidth_percent="0.2"
+        android:scaleType="centerCrop"
+        android:src="@drawable/outline_image_24"
+        app:layout_constraintEnd_toStartOf="@+id/vguide2"
+        app:layout_constraintStart_toEndOf="@id/vguide1"
+        app:layout_constraintTop_toBottomOf="@id/hguide1"
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.App.CircleImageView" />
+
+    <TextView
+        android:id="@+id/tvcompany"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Company"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+
+        app:layout_constraintTop_toBottomOf="@+id/compimage"
+        app:layout_constraintBottom_toTopOf="@+id/tvcompname"
+        app:layout_constraintStart_toEndOf="@id/vguide1" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tvcompname"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+
+        android:textColorHint="#495048"
+        app:boxBackgroundColor="@color/bg"
+        app:boxCornerRadiusBottomEnd="10dp"
+        app:boxCornerRadiusBottomStart="10dp"
+        app:boxCornerRadiusTopEnd="10dp"
+        app:boxCornerRadiusTopStart="10dp"
+        android:hint="Ex:Google"
+        app:boxStrokeColor="@color/darkgreen"
+        app:boxStrokeWidth="1dp"
+        app:hintTextColor="@color/darkgreen"
+
+        app:layout_constraintEnd_toStartOf="@+id/vguide2"
+        app:layout_constraintStart_toEndOf="@+id/vguide1"
+        app:layout_constraintTop_toBottomOf="@+id/tvcompany">
+
+        <com.google.android.material.textfield.MaterialAutoCompleteTextView
+            android:id="@+id/etcompname"
+            android:layout_width="match_parent"
+            android:inputType="text"
+            android:clickable="true"
+           android:paddingStart="14dp"
+            android:textSize="16sp"
+            android:layout_height="wrap_content"
+
+            android:paddingVertical="10dp"
+            android:textColor="#495048" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+        android:id="@+id/tvdesignation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Title"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/tvcompname"
+        app:layout_constraintBottom_toTopOf="@+id/tvdesig"
+        app:layout_constraintStart_toEndOf="@id/vguide1" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tvdesig"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+
+        android:hint="Ex:software developer"
+        android:textColorHint="#495048"
+        app:boxBackgroundColor="@color/bg"
+        app:boxCornerRadiusBottomEnd="10dp"
+        app:boxCornerRadiusBottomStart="10dp"
+        app:boxCornerRadiusTopEnd="10dp"
+        app:boxCornerRadiusTopStart="10dp"
+
+        app:boxStrokeColor="@color/darkgreen"
+        app:boxStrokeWidth="1dp"
+
+        app:hintTextColor="@color/darkgreen"
+        app:layout_constraintEnd_toStartOf="@+id/vguide2"
+        app:layout_constraintStart_toEndOf="@+id/vguide1"
+        app:layout_constraintTop_toBottomOf="@+id/tvdesignation">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etdesig"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:paddingVertical="10dp"
+            android:textColor="#495048" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+        android:id="@+id/tvsdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Joining Date"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/tvdesig"
+        app:layout_constraintBottom_toTopOf="@+id/tvstart"
+        app:layout_constraintStart_toEndOf="@id/vguide1" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tvstart"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+
+       android:hint="Joining Date"
+        android:textColorHint="#495048"
+        app:boxBackgroundColor="@color/bg"
+        app:boxCornerRadiusBottomEnd="10dp"
+        app:boxCornerRadiusBottomStart="10dp"
+        app:boxCornerRadiusTopEnd="10dp"
+        app:boxCornerRadiusTopStart="10dp"
+
+        app:boxStrokeColor="@color/darkgreen"
+        app:boxStrokeWidth="1dp"
+        app:hintTextColor="@color/darkgreen"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/outline_calendar_month_24"
+
+        app:layout_constraintEnd_toStartOf="@+id/vguide2"
+        app:layout_constraintStart_toEndOf="@+id/vguide1"
+        app:layout_constraintTop_toBottomOf="@+id/tvsdate">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etstart"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:paddingVertical="10dp"
+            android:textColor="#495048" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+        android:id="@+id/tvedate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Ending Date"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/tvstart"
+        app:layout_constraintBottom_toTopOf="@+id/tvend"
+        app:layout_constraintStart_toEndOf="@id/vguide1" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tvend"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+
+        android:hint="Ending date"
+        android:textColorHint="#495048"
+        app:boxBackgroundColor="@color/bg"
+        app:boxCornerRadiusBottomEnd="10dp"
+        app:boxCornerRadiusBottomStart="10dp"
+        app:boxCornerRadiusTopEnd="10dp"
+        app:boxCornerRadiusTopStart="10dp"
+
+        app:boxStrokeColor="@color/darkgreen"
+        app:boxStrokeWidth="1dp"
+        app:hintTextColor="@color/darkgreen"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/outline_calendar_month_24"
+        app:layout_constraintEnd_toStartOf="@+id/vguide2"
+        app:layout_constraintStart_toEndOf="@+id/vguide1"
+        app:layout_constraintTop_toBottomOf="@+id/tvedate">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etend"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:paddingVertical="10dp"
+            android:textColor="#495048" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.checkbox.MaterialCheckBox
+        android:id="@+id/checkcurrent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        android:text="Currently Working Here"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:buttonTint="@color/black"
+        app:layout_constraintStart_toEndOf="@id/vguide1"
+
+        app:layout_constraintTop_toBottomOf="@+id/tvend" />
+
+    <TextView
+        android:id="@+id/tvdesc1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Description"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/checkcurrent"
+        app:layout_constraintBottom_toTopOf="@+id/tvdesc2"
+        app:layout_constraintStart_toEndOf="@id/vguide1" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tvdesc2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:hintTextColor="@color/darkgreen"
+        android:hint="Describe Your Role"
+
+        android:textColorHint="#495048"
+        app:boxBackgroundColor="@color/bg"
+        app:boxCornerRadiusBottomEnd="10dp"
+        app:boxCornerRadiusBottomStart="10dp"
+        app:boxCornerRadiusTopEnd="10dp"
+        app:boxCornerRadiusTopStart="10dp"
+
+        app:boxStrokeColor="@color/darkgreen"
+        app:boxStrokeWidth="1dp"
+
+
+        app:layout_constraintEnd_toStartOf="@+id/vguide2"
+        app:layout_constraintStart_toEndOf="@+id/vguide1"
+        app:layout_constraintTop_toBottomOf="@+id/tvdesc1">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etdesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="false"
+            android:maxLength="100"
+            android:inputType="textMultiLine"
+            android:paddingVertical="30dp"
+            android:textColor="#495048" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_save"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAllCaps="true"
+        android:text="Save"
+        android:padding="15dp"
+        app:cornerRadius="10dp"
+
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/tvdesc2"
+        app:layout_constraintBottom_toTopOf="@+id/hguide2"
+        app:layout_constraintEnd_toStartOf="@+id/vguide2"
+        app:layout_constraintStart_toEndOf="@+id/vguide1"
+        android:backgroundTint="#698B6A"/>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

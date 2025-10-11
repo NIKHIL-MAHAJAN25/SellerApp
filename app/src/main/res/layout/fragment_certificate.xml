@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    tools:context=".experience.AddExperience">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hguide1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.02" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vguide1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vguide2"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hguide2"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.97" />
+
+    <TextView
+        android:id="@+id/tvcompany"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Institution Name"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+
+        app:layout_constraintBottom_toTopOf="@+id/tvcompname"
+        app:layout_constraintStart_toEndOf="@id/vguide1"
+        app:layout_constraintTop_toBottomOf="@+id/hguide1" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tvcompname"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+
+        android:hint="Institution Name"
+        android:textColorHint="#495048"
+        app:boxBackgroundColor="@color/bg"
+        app:boxCornerRadiusBottomEnd="10dp"
+        app:boxCornerRadiusBottomStart="10dp"
+        app:boxCornerRadiusTopEnd="10dp"
+        app:boxCornerRadiusTopStart="10dp"
+        app:boxStrokeColor="@color/darkgreen"
+        app:boxStrokeWidth="1dp"
+        app:hintTextColor="@color/darkgreen"
+
+        app:layout_constraintEnd_toStartOf="@+id/vguide2"
+        app:layout_constraintStart_toEndOf="@+id/vguide1"
+        app:layout_constraintTop_toBottomOf="@+id/tvcompany">
+
+        <com.google.android.material.textfield.MaterialAutoCompleteTextView
+            android:id="@+id/etcompname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:inputType="text"
+            android:paddingVertical="10dp"
+            android:paddingStart="14dp"
+
+            android:textColor="#495048"
+            android:textSize="16sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvdesignation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Enrollment or Certificate Number"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tvdesig"
+        app:layout_constraintStart_toEndOf="@id/vguide1"
+        app:layout_constraintTop_toBottomOf="@+id/tvcompname" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tvdesig"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+
+        android:hint="Certificate Number"
+        android:textColorHint="#495048"
+        app:boxBackgroundColor="@color/bg"
+        app:boxCornerRadiusBottomEnd="10dp"
+        app:boxCornerRadiusBottomStart="10dp"
+        app:boxCornerRadiusTopEnd="10dp"
+        app:boxCornerRadiusTopStart="10dp"
+
+        app:boxStrokeColor="@color/darkgreen"
+        app:boxStrokeWidth="1dp"
+
+        app:hintTextColor="@color/darkgreen"
+        app:layout_constraintEnd_toStartOf="@+id/vguide2"
+        app:layout_constraintStart_toEndOf="@+id/vguide1"
+        app:layout_constraintTop_toBottomOf="@+id/tvdesignation">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etdesig"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:paddingVertical="10dp"
+            android:textColor="#495048" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <TextView
+        android:id="@+id/tvedate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Issue Date"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+
+        app:layout_constraintStart_toEndOf="@id/vguide1"
+        app:layout_constraintTop_toBottomOf="@+id/tvdesig"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tvend"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+
+        android:hint="Ending date"
+        android:textColorHint="#495048"
+        app:boxBackgroundColor="@color/bg"
+        app:boxCornerRadiusBottomEnd="10dp"
+        app:boxCornerRadiusBottomStart="10dp"
+        app:boxCornerRadiusTopEnd="10dp"
+        app:boxCornerRadiusTopStart="10dp"
+
+        app:boxStrokeColor="@color/darkgreen"
+        app:boxStrokeWidth="1dp"
+        app:endIconDrawable="@drawable/outline_calendar_month_24"
+        app:endIconMode="custom"
+        app:hintTextColor="@color/darkgreen"
+        app:layout_constraintEnd_toStartOf="@+id/vguide2"
+        app:layout_constraintStart_toEndOf="@+id/vguide1"
+        app:layout_constraintTop_toBottomOf="@+id/tvedate">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etend"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:paddingVertical="10dp"
+            android:textColor="#495048" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <TextView
+        android:id="@+id/keyskill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Key Skill Involved"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/vguide1"
+        app:layout_constraintTop_toBottomOf="@+id/tvend" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tvskill"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+
+        android:hint="Skill"
+        android:textColorHint="#495048"
+        app:boxBackgroundColor="@color/bg"
+        app:boxCornerRadiusBottomEnd="10dp"
+        app:boxCornerRadiusBottomStart="10dp"
+        app:boxCornerRadiusTopEnd="10dp"
+        app:boxCornerRadiusTopStart="10dp"
+
+        app:boxStrokeColor="@color/darkgreen"
+        app:boxStrokeWidth="1dp"
+        app:hintTextColor="@color/darkgreen"
+
+        app:layout_constraintEnd_toStartOf="@+id/vguide2"
+        app:layout_constraintStart_toEndOf="@+id/vguide1"
+        app:layout_constraintTop_toBottomOf="@+id/keyskill">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etskill"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:paddingVertical="10dp"
+            android:textColor="#495048" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvdesc1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Description (Optional)"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tvdesc2"
+        app:layout_constraintStart_toEndOf="@id/vguide1"
+        app:layout_constraintTop_toBottomOf="@+id/tvskill" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tvdesc2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:hint=""
+        android:textColorHint="#495048"
+
+        app:boxBackgroundColor="@color/bg"
+        app:boxCornerRadiusBottomEnd="10dp"
+        app:boxCornerRadiusBottomStart="10dp"
+        app:boxCornerRadiusTopEnd="10dp"
+        app:boxCornerRadiusTopStart="10dp"
+        app:boxStrokeColor="@color/darkgreen"
+
+        app:boxStrokeWidth="1dp"
+        app:hintTextColor="@color/darkgreen"
+
+
+        app:layout_constraintEnd_toStartOf="@+id/vguide2"
+        app:layout_constraintStart_toEndOf="@+id/vguide1"
+        app:layout_constraintTop_toBottomOf="@+id/tvdesc1">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etdesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:maxLength="100"
+            android:paddingVertical="30dp"
+            android:singleLine="false"
+            android:textColor="#495048" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_save"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#698B6A"
+        android:padding="15dp"
+        android:text="Save"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        app:cornerRadius="10dp"
+       android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/vguide2"
+        app:layout_constraintStart_toEndOf="@+id/vguide1"
+        app:layout_constraintTop_toBottomOf="@+id/tvdesc2" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

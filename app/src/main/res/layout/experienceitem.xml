@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardExperience"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:backgroundTint="@color/bgdark"
+    app:cardCornerRadius="30dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    app:cardElevation="1dp"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <!-- Company Logo -->
+        <ImageView
+            android:id="@+id/imgCompanyLogo"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:scaleType="centerCrop"
+            android:background="@drawable/bg_circle"
+            android:contentDescription="Company Logo" />
+
+        <!-- Texts -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <!-- Designation -->
+            <TextView
+                android:id="@+id/txtDesignation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Software Engineer"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@android:color/black" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+
+                android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtCompany"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Google" />
+                <TextView
+                    android:id="@+id/txtdates"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" • Jan 2022 - Present"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Worked on Android apps for clients, optimized performance, and collaborated with cross-functional teams across multiple regions..."
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:lineSpacingExtra="2dp"
+                android:gravity="start"
+                android:justificationMode="none"
+                android:maxLines="5"
+                android:ellipsize="end" />
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
