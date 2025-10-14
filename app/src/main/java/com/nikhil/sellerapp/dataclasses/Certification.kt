@@ -7,7 +7,7 @@ data class Certification(
     val skillname:String="",
     val certNo:String="",
     val issuingcompany:String="",
-    val issuedate: Timestamp = Timestamp(Date()),
+    val issuedate: String?=null,
     val description:String?=null
 
     )

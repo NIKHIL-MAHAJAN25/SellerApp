@@ -6,10 +6,10 @@ import java.util.Date
 data class Qualification (
     val instName:String?="",
     val rollNo:String?=null,
-    val endYear:Timestamp=Timestamp(Date()),
+    val endYear:String?=null,
     val degree:String?=null,
-    val aggregate:Double?=0.0,
-    val max:Int?=100,
-    val description:String?=""
+    val aggregate:Any?=0.0,
+    val max:Any?=100,
+
 
 )

@@ -1,7 +1,24 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.SellerApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    <style name="Base.Theme.SellerApp" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/bg</item>
+        <item name="chipStyle">@style/MyCustomChip</item>
+
     </style>
+    <style name="Mydate" parent="ThemeOverlay.Material3.MaterialCalendar">
+        <item name="colorPrimary">@color/darkgreen</item>
+        <item name="android:background">@color/bg</item>
+    </style>
+    <style name="MySimpleDialogButton" parent="Widget.Material3.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/darkgreen</item> </style>
+
+    <style name="MySimpleDialogStyle" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="colorSurfaceContainerHigh">@color/bg</item>
+        <item name="buttonBarPositiveButtonStyle">@style/MySimpleDialogButton</item>
+        <item name="buttonBarNegativeButtonStyle">@style/MySimpleDialogButton</item>
+        <item name="buttonBarNeutralButtonStyle">@style/MySimpleDialogButton</item>
+    </style>
+
+
+    <style name="Theme.SellerApp" parent="Base.Theme.SellerApp" />
 </resources>

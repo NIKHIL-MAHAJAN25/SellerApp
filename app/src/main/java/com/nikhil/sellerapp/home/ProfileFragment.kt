@@ -61,6 +61,7 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         loadinfo()
+        loadotherinfo()
 
         binding.logout.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
@@ -71,9 +72,7 @@ class ProfileFragment : Fragment() {
 
         }
 
-        binding.imgbt.setOnClickListener {
-            findNavController().navigateUp()
-        }
+
         binding.btnEditProfile.setOnClickListener {
             findNavController().navigate(R.id.prof_to_edit)
         }
@@ -110,6 +109,25 @@ class ProfileFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+    private fun loadotherinfo() {
+        if (uid != null) {
+            db.collection("Freelancers").document(uid)
+                .addSnapshotListener { snapshot, error ->
+                    //Now what happens is we are getting npe exception ie firestore add on listener run asyncronoulsy and giving result even when fragment is destroyed so we make a local
+                    //copy of binding
+                    val b = _binding ?: return@addSnapshotListener
+                    if (error != null) {
+                        // Handle error, maybe log it
+                        return@addSnapshotListener
+                    }
+                    if (snapshot != null && snapshot.exists()) {
+                        val user = snapshot.toObject<Freelancer>()
+                        b.tvtitle.setText(user?.primaryskill)
+                        b.tvrate.setText(user?.projectRate.toString()+"/hour")
+                    }
+                }
+        }
     }
     private fun loadinfo(){
         if(uid!=null){

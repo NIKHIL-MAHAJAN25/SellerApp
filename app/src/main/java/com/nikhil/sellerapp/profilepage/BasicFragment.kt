@@ -1,13 +1,23 @@
 package com.nikhil.sellerapp.profilepage
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.firestore
 import com.nikhil.sellerapp.R
+import com.nikhil.sellerapp.certificate.CertAdapter
 import com.nikhil.sellerapp.databinding.FragmentBasicBinding
+import com.nikhil.sellerapp.dataclasses.Certification
+import com.nikhil.sellerapp.dataclasses.Freelancer
+import com.nikhil.sellerapp.dataclasses.Qualification
+import com.nikhil.sellerapp.qualification.QualAdapter
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,6 +34,13 @@ class BasicFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private val binding get()=_binding!!
+    private val db=Firebase.firestore
+    private val auth: FirebaseAuth = FirebaseAuth.getInstance()
+    private val uid=auth.currentUser?.uid
+    var userlist= arrayListOf<Certification>()
+    val qlist= arrayListOf<Qualification>()
+    lateinit var qadapter:QualAdapter
+    lateinit var adapterr: CertAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +60,21 @@ class BasicFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        adapterr= CertAdapter(userlist)
+        binding.recylercert.layoutManager=LinearLayoutManager(requireContext())
+        binding.recylercert.adapter=adapterr
+        userlist.clear()
+
+
+
+
+
+        qadapter= QualAdapter(qlist)
+        binding.recylerqual.layoutManager=LinearLayoutManager(requireContext())
+        binding.recylerqual.adapter=qadapter
+        qlist.clear()
+        startlisten()
+        startlistencert()
         binding.btnCertEdit.setOnClickListener {
             findNavController().navigate(R.id.prof_to_cert)
         }
@@ -50,7 +82,42 @@ class BasicFragment : Fragment() {
             findNavController().navigate(R.id.prof_to_qual)
         }
     }
+    private fun startlistencert(){
+        if(uid!=null){
+            db.collection("Freelancers").document(uid).addSnapshotListener{snapshot,error->
+                if(error!=null){
+                    Log.e("Firestore error","Listen failed",error)
+                    return@addSnapshotListener
+                }
+                if(snapshot!=null && snapshot.exists()){
+                    val freelancer=snapshot.toObject(Freelancer::class.java)
+                    val newcert=freelancer?.certification?: emptyList()
+                    adapterr.updateData(newcert)
+                }else{
+                    Log.d("Firestore Info", "Current data: null")
 
+                }
+            }
+        }
+    }
+private fun startlisten(){
+    if(uid!=null){
+        db.collection("Freelancers").document(uid).addSnapshotListener{snapshot,error->
+            if(error!=null){
+                Log.e("Firestore error","Listen failed",error)
+                return@addSnapshotListener
+            }
+            if(snapshot!=null && snapshot.exists()){
+                val freelancer=snapshot.toObject(Freelancer::class.java)
+                val newqual=freelancer?.qualification?: emptyList()
+                qadapter.updateData(newqual)
+            }else{
+                Log.d("Firestore Info", "Current data: null")
+
+            }
+        }
+    }
+}
     companion object {
         /**
          * Use this factory method to create a new instance of

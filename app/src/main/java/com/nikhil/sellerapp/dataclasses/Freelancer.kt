@@ -11,9 +11,9 @@ data class Freelancer(
 
 
 
-        val qualification:String?=null,//basic
+        val qualification:List<Qualification> = emptyList(),
         val certification:List<Certification> = emptyList(),//basic
-        val projectRate:Double?=null,//basic
+        val projectRate:Any?=null,//basic
         val reviews:List<Review> = emptyList(),//basic
         val rating:Double?=0.0,//basic
 

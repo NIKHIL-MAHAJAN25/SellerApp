@@ -47,15 +47,7 @@
             app:layout_constraintEnd_toStartOf="@id/vguide2"
             app:layout_constraintTop_toBottomOf="@id/hguide1"/>
 
-    <ImageButton
-        android:id="@+id/imgbt"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:backgroundTint="@android:color/transparent"
-        android:src="@drawable/baseline_arrow_back_ios_24"
-        app:layout_constraintStart_toEndOf="@id/vguide1"
-        app:layout_constraintTop_toBottomOf="@+id/hguide1"
-        android:contentDescription="Back"/>
+   
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/cameraFab"
             android:layout_width="36dp"
@@ -114,7 +106,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/tvname"
-        android:text=""
+        android:textStyle="bold"
         android:textSize="15sp"
         android:layout_marginStart="13dp"
         app:layout_constraintStart_toEndOf="@+id/profileImage"
@@ -124,7 +116,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/tvtitle"
-            android:text=""
+            android:textStyle="bold"
             android:textSize="15sp"
             android:layout_marginStart="13dp"
             app:layout_constraintStart_toEndOf="@+id/profileImage"
