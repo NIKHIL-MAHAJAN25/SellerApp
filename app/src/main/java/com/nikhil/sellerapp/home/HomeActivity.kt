@@ -37,6 +37,9 @@ class HomeActivity : AppCompatActivity() {
         enableEdgeToEdge()
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val bottomNavParams = binding.bottomNavigation.layoutParams
+        bottomNavParams.height = resources.getDimensionPixelSize(R.dimen.bottom_nav_height) // Or use: (70 * resources.displayMetrics.density).toInt()
+        binding.bottomNavigation.layoutParams = bottomNavParams
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.host) as NavHostFragment
 

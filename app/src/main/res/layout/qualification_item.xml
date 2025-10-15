@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:background="@android:color/white">
 
-        <!-- Accent Color Bar -->
+
         <View
             android:id="@+id/accentBar"
             android:layout_width="6dp"
@@ -25,7 +25,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Content Container -->
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -44,19 +44,20 @@
                 app:cardCornerRadius="12dp"
                 app:cardElevation="0dp"
                 app:strokeWidth="0dp"
-                app:cardBackgroundColor="#E3F2FD"
+                app:cardBackgroundColor="@color/bgdark"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:contentDescription="TODO"
                     android:scaleType="center"
-                    android:src="@drawable/ic_school"
-                    android:contentDescription="Institution Icon" />
+                    android:src="@drawable/grad"
+                     />
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Institution Name (Main Title) -->
+
             <TextView
                 android:id="@+id/tvInstName"
                 android:layout_width="0dp"
@@ -78,7 +79,7 @@
                 android:id="@+id/tvDegree"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+
                 android:layout_marginTop="4dp"
                 android:text="Bachelor of Science"
                 android:textColor="#616161"
@@ -119,7 +120,7 @@
                     android:orientation="horizontal"
                     android:padding="12dp">
 
-                    <!-- Roll Number Section -->
+
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
