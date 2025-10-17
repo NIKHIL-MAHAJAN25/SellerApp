@@ -2,10 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".home.HomeActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg"
-    tools:context=".experience.AddExperience">
+  >
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/hguide1"
@@ -62,6 +63,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textview.MaterialTextView
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/searchBar"
@@ -93,6 +95,40 @@
         android:layout_marginTop="10dp"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        />
+    <com.google.android.material.textview.MaterialTextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerservices"
+        app:layout_constraintStart_toEndOf="@id/vguide1"
+        android:layout_marginTop="30dp"
+        android:text="Recent Job/Project Postings"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:id="@+id/tvrecent"
+        />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/seealljobs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/vguide2"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerservices"
+        android:layout_marginTop="20dp"
+        android:text="See All"
+        android:textSize="15dp"
+        android:textColor="@color/darkgreen"
+        android:background="@android:color/transparent"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerjobs"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/vguide1"
+        app:layout_constraintEnd_toStartOf="@+id/vguide2"
+        app:layout_constraintTop_toBottomOf="@+id/tvrecent"
+        android:layout_marginTop="10dp"
+
         />
 
 

@@ -4,9 +4,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="160dp"
+    android:backgroundTint="@color/bg"
     android:layout_height="wrap_content"
     app:cardCornerRadius="8dp"
     app:cardElevation="4dp"
+
     app:cardUseCompatPadding="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -30,9 +32,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:padding="12dp"
+            android:textStyle="bold"
+
+            android:background="@color/bgdark"
+            android:gravity="center"
             android:textAppearance="?attr/textAppearanceBodyMedium"
-            android:textColor="?attr/colorOnSurface"
+            android:textColor="@color/black"
             android:maxLines="2"
+            android:minLines="2"
             android:ellipsize="end"
             app:layout_constraintTop_toBottomOf="@id/service_image"
             app:layout_constraintStart_toStartOf="parent"

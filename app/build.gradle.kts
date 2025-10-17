@@ -16,7 +16,7 @@ android {
     compileSdk = 35
 
     defaultConfig {
-        buildConfigField("String", "GOOGLE_PLACES_API_KEY", "\"${localProperties.getProperty("GOOGLE_PLACES_API_KEY")}\"")
+
         buildConfigField("String", "SUPABASE_URL", "\"${localProperties.getProperty("SUPABASE_URL")}\"")
         buildConfigField("String", "SUPABASE_KEY", "\"${localProperties.getProperty("SUPABASE_KEY")}\"")
         buildConfigField("String", "BRANDFETCH_API_KEY", "\"${localProperties.getProperty("BRANDFETCH_API_KEY")}\"")

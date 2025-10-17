@@ -23,7 +23,7 @@
             android:name=".MainActivity2"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".home.HomeActivity"
             android:exported="false" />
         <activity
             android:name=".adminside.ApprovalScreen"
@@ -47,7 +47,7 @@
             android:name=".Signup.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".home.HomeActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
