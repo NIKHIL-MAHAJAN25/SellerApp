@@ -9,6 +9,7 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -26,6 +27,8 @@ import com.google.android.material.behavior.HideBottomViewOnScrollBehavior
 import com.nikhil.sellerapp.databinding.ActivityEntercodeBinding
 import com.nikhil.sellerapp.databinding.ActivityHomeBinding
 import com.nikhil.sellerapp.dataclasses.Freelancer
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
 
 class HomeActivity : AppCompatActivity() {
 
@@ -65,7 +68,8 @@ class HomeActivity : AppCompatActivity() {
                 else -> hideBottomNav()
             }
         }
-        showprofilemark()
+        checkprof()
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -73,17 +77,33 @@ class HomeActivity : AppCompatActivity() {
         }
 
     }
+    private fun checkprof() {
+        val uid = auth.currentUser?.uid
+        if (uid != null) {
+            lifecycleScope.launch {
+                try {
+                    val docu = db.collection("Freelancers").document(uid).get().await()
+                    val ans = docu.getBoolean("profcomp") ?: false
+                    if (!ans && binding.bottomNavigation.visibility == View.VISIBLE) {
+                        showprofilemark()
+                    }
+                }catch (e:Exception){
+                    e.printStackTrace()
+                }
+            }
+            }
+        }
+
 
     private fun showprofilemark() {
-        val uid = auth.currentUser?.uid ?: return
+
         val prefs = getSharedPreferences("hints", MODE_PRIVATE)//for anti nagging
         val shownBefore = prefs.getBoolean("freelancer_full_profile_hint_shown", false)//pllay only one time
-        if (shownBefore) return
-        db.collection("Freelancers").document(uid).get().addOnSuccessListener { fr ->
-            val freelancer = fr.toObject(Freelancer::class.java)
-            val full = freelancer?.profcomp ?: false
-            if (!full) {
-                binding.bottomNavigation.post{
+        if (shownBefore)
+            return
+        if (binding.bottomNavigation.visibility != View.VISIBLE) return
+
+        binding.bottomNavigation.post{
                     val menu = binding.bottomNavigation.getChildAt(0) as? ViewGroup ?: return@post//gets all the frags as a view group
                     val profile = menu.childCount - 1//last index ie profile
                     val target = menu.getChildAt(profile) ?: return@post//target profile
@@ -119,8 +139,8 @@ class HomeActivity : AppCompatActivity() {
                 }
             }
 
-        }
-    }
+        
+
     private fun hideBottomNav() {
         binding.bottomNavigation.visibility = View.GONE
         // Disable the scroll behavior
